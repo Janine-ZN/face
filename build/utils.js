@@ -47,7 +47,8 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        fallback: 'vue-style-loader'
+        fallback: 'vue-style-loader',
+        publicPath: '../../'
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
@@ -60,7 +61,15 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('sass').concat(
+    {
+      loader: 'sass-resources-loader',
+      options: {
+        //你自己的scss全局文件的路径
+       resources: path.resolve(__dirname, '../src/common/style/base.scss')
+      // 这里引用你自己的scss公共文件
+      }
+    }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }

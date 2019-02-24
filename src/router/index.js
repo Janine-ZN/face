@@ -1,52 +1,60 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Main from '@/components/Main'
 import Login from '@/components/Login'
+import VideoPreview from '@/components/views/VideoPreview.vue'
 
 Vue.use(Router)
 
+// 配置路由词典
 export default new Router({
   routes: [
-    // 默认加载项
+    // 页面默认加载登录界面
     {
-      path: '/',
-      component: Login
+      path: '/', name:'login',component: Login
     },
-    {
-      path: '/',
-      component: HelloWorld,
-      children:[
-        {
-          path: '/',
-          component: () => import('@/view/nav1.vue'),
-        },
-      ],
-    },
+    // 与登录界面同级的路由 —— 主页面
     {
       // 一级路由
-      path: '/HelloWorld',
-      name: 'HelloWorld',
-      component: () => import('@/components/HelloWorld.vue'),
+      path: '/main',
+      name: 'main',
+      // 组件懒加载
+      component: () => import('@/components/Main.vue'),
       // 二級路由
       children: [
+        // 默认加载 —— 视频预览
         {
-          path: 'nav1',
-          name: 'nav1',
-          component: () => import('@/view/nav1.vue'),
+          path: '/',
+          name: 'video-preview',
+          component: VideoPreview,
         },
+        // 视频预览
         {
-          path: 'nav2',
-          name: 'nav2',
-          component: () => import('@/view/nav2.vue'),
+          path: 'video-preview',
+          name: 'video-preview',
+          component: () => import('@/components/views/VideoPreview.vue'),
         },
+        // 人脸抓拍
         {
-          path: 'nav3',
-          name: 'nav3',
-          component: () => import('@/view/nav3.vue'),
+          path: 'face-capture',
+          name: 'face-capture',
+          component: () => import('@/components/views/FaceCapture.vue'),
+        },
+        // 人脸库配置
+        {
+          path: 'face-libs-configs',
+          name: 'face-libs-configs',
+          component: () => import('@/components/views/FaceLibsConfigs.vue'),
+        },
+        // 系统设置
+        {
+          path: 'system-setting',
+          name: 'system-setting',
+          component: () => import('@/components/views/SystemSetting.vue'),
         }
       ]
     },
-    // 找不到路由默认加载的页面
-    { path: '*', component: ()=>import('@/components/HelloWorld') }
+    // 找不到路由默认加载的页面或跳转到指定页面
+    { path: '*', component: ()=>import('@/components/404') }
   ]
 })

@@ -32,3 +32,15 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ### 滞留问题
 路由 #
+
+### element-ui使用
+1. 安装 element-ui 组件库 `npm i element-ui -S`
+2. 在 main.js 中引入 element-ui
+```
+// 导入 element-ui
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+// 使用 element-ui
+Vue.use(ElementUI);
+```

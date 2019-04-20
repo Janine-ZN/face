@@ -3,18 +3,19 @@
     <el-container>
       <el-header>
         <el-row :gutter="20">
-          <el-col :span="8">
+          <el-col :span="4">
             <div class="grid-content">
-              <img src="" alt="">
+              <img src="../assets/imgs/vr.png" alt height="30%">
+              <img src="../assets/imgs/view.png" alt height="25%">
             </div>
           </el-col>
-          <el-col :span="8">
+          <el-col :span="16">
             <el-menu
               :default-active="activeIndex"
               mode="horizontal"
               class="el-menu-ul"
               @select="handleSelect"
-              active-text-color="#ffd04b"
+              active-text-color="#fff"
             >
               <el-menu-item index="video-preview">
                 <router-link :to="{ name: 'video-preview'}">视频预览</router-link>
@@ -30,10 +31,15 @@
               </el-menu-item>
             </el-menu>
           </el-col>
-          <el-col :span="8">
-            <div class="grid-content">
-              <el-input></el-input>
-            </div>
+          <el-col :span="4">
+            <div class="logout"></div>
+            <span class="logout-content">
+              <span class="logout-admin">
+                <img src="../assets/imgs/user.png" alt>
+                <span>admin</span>
+              </span>
+              <img src="../assets/imgs/exit.png" alt>
+            </span>
           </el-col>
         </el-row>
       </el-header>
@@ -41,7 +47,8 @@
         <!-- 路由插槽 -->
         <router-view></router-view>
       </el-main>
-      <el-footer>©2017 VRVIEW 版权所有 寰景信息技术有限公司 皖ICP备14001780号
+      <el-footer>
+        ©2017 VRVIEW 版权所有 寰景信息技术有限公司 皖ICP备14001780号
         <br>电话: +86-551-65319388; +86-551-65370504; 传真: +86-551-65359164; 地址:安徽省合肥市黄山路616号(230088)
       </el-footer>
     </el-container>
@@ -52,16 +59,15 @@
 export default {
   data() {
     return {
-      activeIndex: "video-preview",
+      activeIndex: "video-preview"
     };
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 // 导入基本样式
-@import "@/common/style/base.scss";
+@import "@/common/style/index.scss";
 
 // 容器
 .el-container {
@@ -73,20 +79,44 @@ export default {
 // 头部
 .el-header {
   background: linear-gradient(to right, $main_color, $secondary_color);
-  color: #333;
   text-align: center;
   line-height: 60px;
+  .grid-content {
+    height: 60px;
+    line-height: 60px;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .el-menu-ul {
-  background-color: transparent
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  li {
+    color: #eee;
+    &:hover {
+      color: $my_main_color !important;
+      background-color: transparent !important;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.is-active {
+  background-color: transparent !important;
+  // 选中的时候有下划线，但是从 A 菜单到 B 菜单这个下划线有一个动画效果（从 A 过渡到 B）Question
 }
 
 // 主体
 .el-main {
   height: 100%;
-  background-color: #e9eef3;
-  color: #333;
   text-align: center;
   line-height: 160px;
   padding-bottom: 60px;

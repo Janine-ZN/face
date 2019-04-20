@@ -1,0 +1,27 @@
+@mixin flex-style {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logout{
+    width: 6.25em;
+    height: 1.5625em;
+    display: inline-block;
+    border: 0.0625em dashed #fff;
+    border-radius: 1.5625em;
+    vertical-align: middle;
+}
+
+.logout-content{
+    display: inline-block;
+    margin-left: -6.125em;
+    .logout-admin{
+        padding-right: 10px;
+        span{
+            font-size: 0.875em;
+            color:$my_main_color
+        }
+    }
+}

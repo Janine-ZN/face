@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
 import Login from '@/components/Login'
-import VideoPreview from '@/components/views/VideoPreview.vue'
+import VideoPreview from '@/components/views/video-preview/VideoPreview.vue'
 
 Vue.use(Router)
 
@@ -32,25 +32,25 @@ export default new Router({
         {
           path: 'video-preview',
           name: 'video-preview',
-          component: () => import('@/components/views/VideoPreview.vue'),
+          component: () => import('@/components/views/video-preview/VideoPreview.vue'),
         },
         // 人脸抓拍
         {
           path: 'face-capture',
           name: 'face-capture',
-          component: () => import('@/components/views/FaceCapture.vue'),
+          component: () => import('@/components/views/face-capture/FaceCapture.vue'),
         },
         // 人脸库配置
         {
           path: 'face-libs-configs',
           name: 'face-libs-configs',
-          component: () => import('@/components/views/FaceLibsConfigs.vue'),
+          component: () => import('@/components/views/face-libs/FaceLibsConfigs.vue'),
         },
         // 系统设置
         {
           path: 'system-setting',
           name: 'system-setting',
-          component: () => import('@/components/views/SystemSetting.vue'),
+          component: () => import('@/components/views/system-setting/SystemSetting.vue'),
         }
       ]
     },

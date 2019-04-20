@@ -14,7 +14,6 @@
               :default-active="activeIndex"
               mode="horizontal"
               class="el-menu-ul"
-              @select="handleSelect"
               active-text-color="#fff"
             >
               <el-menu-item index="video-preview">
@@ -67,7 +66,7 @@ export default {
 
 <style lang="scss" scoped>
 // 导入基本样式
-@import "@/common/style/index.scss";
+// @import "@/common/style/index.scss";
 
 // 容器
 .el-container {
@@ -116,10 +115,12 @@ export default {
 
 // 主体
 .el-main {
-  height: 100%;
-  text-align: center;
+  /*height: 100%;
+   text-align: center;
   line-height: 160px;
-  padding-bottom: 60px;
+  padding-bottom: 60px; */
+  min-height: 600px;
+  background: url("../assets/imgs/bg.png") no-repeat;
 }
 
 // 底部

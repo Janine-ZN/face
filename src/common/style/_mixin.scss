@@ -1,3 +1,5 @@
+@import './base.scss';
+
 @mixin flex-style {
     display: -webkit-flex; /* Safari */
     display: flex;
@@ -9,7 +11,7 @@
     width: 6.25em;
     height: 1.5625em;
     display: inline-block;
-    border: 0.0625em dashed #fff;
+    border: 0.0625em dashed $my_main_color;
     border-radius: 1.5625em;
     vertical-align: middle;
 }
@@ -21,7 +23,14 @@
         padding-right: 10px;
         span{
             font-size: 0.875em;
-            color:$my_main_color
+            color: $my_main_color
         }
     }
+}
+
+/* 标题文字 */
+.title-font{
+    width: 100px;
+    height: 50px;;
+    background: url('~@/assets/imgs/title.png') no-repeat;
 }

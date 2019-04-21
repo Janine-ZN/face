@@ -12,7 +12,7 @@
         <!-- 左下 -->
         <div class="date bg-white">
           <el-row>
-            <el-col>
+            <el-col style="padding-top:5px">
               <span class="input-title">开始时间：</span>
               <div class="block">
                 <el-date-picker
@@ -41,7 +41,7 @@
           </el-row>
           <el-row>
             <el-col>
-              <label>
+              <label class="date-radio">
                 <input type="radio" name="show">
                 <span>仅显示已识别结果</span>
               </label>
@@ -129,6 +129,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.date-radio {
+  display: inline-block;
+  font-size: 0.875em;
+  padding: 1.071em 1.071em 0.357em;
+}
 
 /* 该 ul 只用在当前页 */
 ul.ul-img-info {

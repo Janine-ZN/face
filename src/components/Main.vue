@@ -95,12 +95,15 @@ export default {
   border: none;
   li {
     color: #eee;
+    padding: 0px 0px;
     &:hover {
       color: $my_main_color !important;
       background-color: transparent !important;
     }
   }
   a {
+    display: inline-block;
+    padding: 0px 20px;
     text-decoration: none;
   }
 }

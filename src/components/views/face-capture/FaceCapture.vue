@@ -13,7 +13,7 @@
         <div class="date">
           <el-row>
             <el-col style="padding-top:5px">
-              <span class="input-title">开始时间：</span>
+              <span class="date-title">开始时间：</span>
               <div class="block">
                 <el-date-picker
                   v-model="dateTime"
@@ -27,7 +27,7 @@
           </el-row>
           <el-row>
             <el-col>
-              <span class="input-title">结束时间：</span>
+              <span class="date-title">结束时间：</span>
               <div class="block">
                 <el-date-picker
                   v-model="dateTime"

@@ -19,15 +19,25 @@
     @include gray-dashed();
     min-height: 190px;
 }
-
-.input-title {
-    position: relative;
-    left: 35px;
-    top: 10px;
+@mixin input-title {
     font-size: 12px;
     color: $font_secondary_color;
     background: $my_main_color;
     z-index: 999;
+}
+
+.date-title {
+    position: relative;
+    left: 35px;
+    top: 10px;
+    @include input-title();
+}
+
+.query-title{
+    position: absolute;
+    left: 20px;
+    top: -5px;
+    @include input-title();
 }
 
 .face-result{
@@ -54,6 +64,24 @@
         color: $font_secondary_color;
     }    
 }
+
+.face-rep{
+    @include gray-dashed();
+}
+
+.face-query{
+    height: 75px;
+    @include gray-dashed();
+}
+
+.face-info-table{
+    height: 500px;
+    margin-top: 15px;
+    @include gray-dashed();
+
+}
+
+
 /* 通用的按钮样式 */
 @mixin btn-common {
     height: 2.143em;

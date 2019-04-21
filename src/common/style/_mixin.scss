@@ -7,6 +7,46 @@
     justify-content: space-between;
 }
 
+/* 通用的按钮样式 */
+@mixin btn-common {
+    height: 2.143em;
+    line-height: 2.143em;
+    font-size: 0.875em;
+    border-radius: 1.786em;
+    padding: 0 2.857em;
+}
+
+/* 主要的按钮样式  */
+@mixin btn-primary{
+    color: $my_main_color;
+    background: $main_color;
+    border: none;
+    @include btn-common()
+}
+
+.btn-primary{
+    @include  btn-primary();
+}
+
+/* 虚线框 */
+@mixin btn-dashed-radius{
+    border: 0.0625em dashed $border_color;
+    border-radius: 1.5625em;
+}
+
+/* 带虚线框的按钮样式 */
+@mixin btn-dashed{
+    color: $main_color;
+    background: $my_main_color;
+    @include btn-dashed-radius();
+    @include btn-common();
+   
+}
+
+.btn-dashed{
+    @include btn-dashed();
+}
+
 .logout{
     width: 6.25em;
     height: 1.5625em;
@@ -35,3 +75,6 @@
     font-weight: 500;
     background: url('~@/assets/imgs/title.png') no-repeat;
 }
+
+
+

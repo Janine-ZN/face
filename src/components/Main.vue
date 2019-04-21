@@ -65,9 +65,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// 导入基本样式
-// @import "@/common/style/index.scss";
-
 // 容器
 .el-container {
   height: 100%;

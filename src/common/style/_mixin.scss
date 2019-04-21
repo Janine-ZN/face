@@ -30,7 +30,8 @@
 
 /* 标题文字 */
 .title-font{
-    width: 100px;
-    height: 50px;;
+    padding-left: 10px;
+    color: $main_color;
+    font-weight: 500;
     background: url('~@/assets/imgs/title.png') no-repeat;
 }

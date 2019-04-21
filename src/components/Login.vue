@@ -16,13 +16,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-// 导入基本样式
-// @import "@/common/style/base.scss";
 $w200: 200px;
 $height: 100px;
 .test {
   width: $w200;
-  // height:$height;
   color: $main_color;
 }
 </style>

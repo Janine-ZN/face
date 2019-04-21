@@ -7,8 +7,8 @@
     justify-content: space-between;
 }
 
-/* 背景为白色的虚线框 */
-@mixin white-dashed {
+/* 背景为灰色的虚线框 */
+@mixin gray-dashed {
     border: 1px dashed $border_color;
     background: $my_main_color;
 }
@@ -16,7 +16,7 @@
 .date {
     height: 198px;
     margin-top: 10px;
-    @include white-dashed();
+    @include gray-dashed();
     min-height: 190px;
 }
 
@@ -30,6 +30,30 @@
     z-index: 999;
 }
 
+.face-result{
+    @include gray-dashed();
+    .face-img {
+        position: relative;
+        display: inline-block;
+        @include gray-dashed();
+        margin: 10px 0 10px 10px;
+        padding: 5px;
+    }
+    .image{
+        width: 163px
+    }
+    .compare{
+        position: absolute;
+        right: 15px;
+        bottom: 50px;
+    }
+    .face-img-time{
+        text-align: center;
+        font-size: 12px;
+        padding: 10px 0;
+        color: $font_secondary_color;
+    }    
+}
 /* 通用的按钮样式 */
 @mixin btn-common {
     height: 2.143em;

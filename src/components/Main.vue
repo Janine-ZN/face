@@ -112,8 +112,8 @@ export default {
 
 // 主体
 .el-main {
-  /*height: 100%;
-   text-align: center;
+  height: 100%;
+  /*text-align: center;
   line-height: 160px;
   padding-bottom: 60px; */
   min-height: 600px;
@@ -125,9 +125,6 @@ export default {
   // 1. 宽高
   width: 100%;
   height: 60px; /* footer的高度一定要是固定值*/
-  position: absolute;
-  left: 0;
-  bottom: 0;
   // 3. 边距
   padding: 16px 0; // 使文字上下垂直居中
   // 4. 字体样式

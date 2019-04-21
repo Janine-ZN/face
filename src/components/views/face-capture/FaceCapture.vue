@@ -112,18 +112,44 @@
         </div>
       </el-col>
     </el-row>
-    <el-row :gutter="20">
-      <el-col>
-        <span class="title-font">人脸抓拍结果</span>
-      </el-col>
+    <el-row>
+      <el-row>
+        <el-col style="margin:18px 0">
+          <span class="title-font">人脸抓拍结果</span>
+        </el-col>
+      </el-row>
+      <div class="face-result">
+        <el-row>
+          <el-col>
+            <div v-for="(o, index) in 100" :key="o" :offset="index > 0 ? 100 : 0" class="face-img">
+              <img src="@/assets/imgs/no_pictures.png" class="image">
+              <img src="@/assets/imgs/compare.png" class="compare">
+              <div class="face-img-time">{{ currentDate | getDateTime}}</div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
     </el-row>
   </div>
 </template>
 <script>
 export default {
+  filters: {
+    getDateTime: function(value) {
+      if (!value) return "";
+      let year = value.getFullYear();
+      let month = value.getMonth() + 1 ;
+      let date = value.getDate();
+      let hours = value.getHours();
+      let minutes = value.getMinutes();
+      let seconds = value.getSeconds();
+      return `时间：${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+    }
+  },
   data() {
     return {
-      dateTime: ""
+      dateTime: "",
+      currentDate: new Date()
     };
   }
 };

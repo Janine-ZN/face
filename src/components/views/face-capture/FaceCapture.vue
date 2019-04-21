@@ -10,7 +10,7 @@
           </el-col>
         </el-row>
         <!-- 左下 -->
-        <div class="date bg-white">
+        <div class="date">
           <el-row>
             <el-col style="padding-top:5px">
               <span class="input-title">开始时间：</span>
@@ -64,7 +64,7 @@
           </el-col>
         </el-row>
         <!-- 左下 -->
-        <div class="date bg-white">
+        <div class="date">
           <el-row :gutter="20">
             <!-- 左侧 -->
             <el-col :span="10">

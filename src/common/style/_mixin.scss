@@ -7,15 +7,17 @@
     justify-content: space-between;
 }
 
+/* 背景为白色的虚线框 */
+@mixin white-dashed {
+    border: 1px dashed $border_color;
+    background: $my_main_color;
+}
+
 .date {
     height: 198px;
     margin-top: 10px;
-    border: 1px dashed $border_color;
+    @include white-dashed();
     min-height: 190px;
-}
-
-.bg-white {
-    background: $my_main_color;
 }
 
 .input-title {

@@ -45,24 +45,30 @@
         </div>
 
         <div class="face-info-table">
+          <div>各种按钮</div>
           <el-table
             ref="multipleTable"
             :data="tableData"
             tooltip-effect="dark"
-            style="width: 100%"
+            stripe
+            border
+            size="small"
+            style="width: 80%"
             @selection-change="handleSelectionChange"
           >
             <el-table-column type="selection" width="55"></el-table-column>
-            <el-table-column label="日期" width="120">
-              <template slot-scope="scope">{{ scope.row.date }}</template>
+            <el-table-column label="序号" width="120">
+              <template slot-scope="scope">{{ scope.row.number }}</template>
             </el-table-column>
             <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-            <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="gender" label="性别"></el-table-column>
+            <el-table-column prop="id" label="身份证号" show-overflow-tooltip></el-table-column>
+            <el-table-column fixed="right" label="操作" width="100">
+              <template slot-scope="scope">
+                <el-button @click="handleClick(scope.row)" type="text" size="small">查看详情</el-button>
+              </template>
+            </el-table-column>
           </el-table>
-          <div style="margin-top: 20px">
-            <el-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</el-button>
-            <el-button @click="toggleSelection()">取消选择</el-button>
-          </div>
         </div>
       </el-col>
     </el-row>
@@ -88,8 +94,66 @@ export default {
       ],
       value: this.options,
       name: "",
-      id: ""
+      id: "",
+      tableData: [
+        {
+          number: "2016-05-03",
+          name: "王小虎",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-02",
+          name: "王小虎",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-04",
+          name: "王小虎",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-01",
+          name: "王小虎",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-08",
+          name: "王小虎",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-06",
+          name: "王小虎",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-07",
+          name: "王小虎",
+          gender: "女",
+          id: "342001199212081121"
+        }
+      ]
     };
+  },
+  methods: {
+    toggleSelection(rows) {
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.multipleTable.clearSelection();
+      }
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val;
+    }
   }
 };
 </script>

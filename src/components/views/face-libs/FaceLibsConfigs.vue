@@ -45,30 +45,45 @@
         </div>
 
         <div class="face-info-table">
-          <div>各种按钮</div>
-          <el-table
-            ref="multipleTable"
-            :data="tableData"
-            tooltip-effect="dark"
-            stripe
-            border
-            size="small"
-            style="width: 80%"
-            @selection-change="handleSelectionChange"
-          >
-            <el-table-column type="selection" width="55"></el-table-column>
-            <el-table-column label="序号" width="120">
-              <template slot-scope="scope">{{ scope.row.number }}</template>
-            </el-table-column>
-            <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-            <el-table-column prop="gender" label="性别"></el-table-column>
-            <el-table-column prop="id" label="身份证号" show-overflow-tooltip></el-table-column>
-            <el-table-column fixed="right" label="操作" width="100">
-              <template slot-scope="scope">
-                <el-button @click="handleClick(scope.row)" type="text" size="small">查看详情</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
+          <div class="operate">
+            <button class="btn-dashed">
+              <img src="@/assets/imgs/add.png" alt> 添加
+            </button>
+            <button class="btn-dashed">
+              <img src="@/assets/imgs/delete.png" alt> 删除
+            </button>
+            <button class="btn-dashed">
+              <img src="@/assets/imgs/edit.png" alt> 修改
+            </button>
+          </div>
+          <div class="my-table" style="padding:0 15px">
+            <el-table
+              ref="multipleTable"
+              :data="tableData"
+              tooltip-effect="dark"
+              stripe
+              border
+              size="small"
+              style="width: 100%"
+              @selection-change="handleSelectionChange"
+            >
+              <el-table-column type="selection" width="55"></el-table-column>
+              <el-table-column label="序号" width="120">
+                <template slot-scope="scope">{{ scope.row.number }}</template>
+              </el-table-column>
+              <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+              <el-table-column prop="gender" label="性别"></el-table-column>
+              <el-table-column prop="id" label="身份证号" show-overflow-tooltip></el-table-column>
+              <el-table-column fixed="right" label="操作" width="100">
+                <template slot-scope="scope">
+                  <el-button @click="handleClick(scope.row)" type="text" size="small">查看详情</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+            <div class="pagination">
+              <el-pagination background layout="prev, pager, next" :total="100"></el-pagination>
+            </div>
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -98,43 +113,61 @@ export default {
       tableData: [
         {
           number: "2016-05-03",
-          name: "王小虎",
+          name: "王小虎1",
           gender: "女",
           id: "342001199212081121"
         },
         {
           number: "2016-05-02",
-          name: "王小虎",
+          name: "王小虎2",
           gender: "女",
           id: "342001199212081121"
         },
         {
           number: "2016-05-04",
-          name: "王小虎",
+          name: "王小虎3",
           gender: "女",
           id: "342001199212081121"
         },
         {
           number: "2016-05-01",
-          name: "王小虎",
+          name: "王小虎4",
           gender: "女",
           id: "342001199212081121"
         },
         {
           number: "2016-05-08",
-          name: "王小虎",
+          name: "王小虎5",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-08",
+          name: "王小虎6",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-08",
+          name: "王小虎7",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-08",
+          name: "王小虎8",
+          gender: "女",
+          id: "342001199212081121"
+        },
+        {
+          number: "2016-05-08",
+          name: "王小虎9",
           gender: "女",
           id: "342001199212081121"
         },
         {
           number: "2016-05-06",
-          name: "王小虎",
-          gender: "女",
-          id: "342001199212081121"
-        },
-        {
-          number: "2016-05-07",
-          name: "王小虎",
+          name: "王小虎10",
           gender: "女",
           id: "342001199212081121"
         }
@@ -151,14 +184,17 @@ export default {
         this.$refs.multipleTable.clearSelection();
       }
     },
-    handleSelectionChange(val) {
-      this.multipleSelection = val;
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.operate {
+  padding: 15px;
+}
 </style>
 <style lang="scss">
 .face-query-infos {
@@ -185,6 +221,22 @@ export default {
       width: 225px !important;
       padding-left: 120px !important;
     }
+  }
+}
+.my-table {
+  .el-table td,
+  .el-table th {
+    padding: 2px 0 !important;
+  }
+}
+
+.pagination {
+  float: right;
+  .el-pagination {
+    padding: 5px 0 !important;
+  }
+  .btn-next {
+    margin: 0 0 0 5px !important;
   }
 }
 </style>

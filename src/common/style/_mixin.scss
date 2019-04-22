@@ -105,7 +105,7 @@
 
 /* 虚线框 */
 @mixin btn-dashed-radius{
-    border: 0.0625em dashed $border_color;
+    border: 0.0625em dashed $secondary_color;
     border-radius: 1.5625em;
 }
 
@@ -115,7 +115,6 @@
     background: $my_main_color;
     @include btn-dashed-radius();
     @include btn-common();
-   
 }
 
 @mixin group {

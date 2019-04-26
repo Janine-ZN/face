@@ -5,7 +5,7 @@
         <div class="face-rep">
           <div class="face-rep-font">
             <span class="face-rep-title">人脸库</span>
-            <img src="~@/assets/imgs/add_rep.png" @click="dialogFormVisible = true">
+            <img src="~@/assets/imgs/add_rep.png" @click="addFaceRep = true">
           </div>
           <div class="various_libs">
             <ul>
@@ -51,7 +51,7 @@
         </div>
         <div class="face-info-table">
           <div class="operate">
-            <button class="btn-dashed">
+            <button class="btn-dashed" @click="addPersonFace = true">
               <img src="@/assets/imgs/add.png" alt> 添加
             </button>
             <button class="btn-dashed">
@@ -92,23 +92,68 @@
         </div>
       </el-col>
     </el-row>
-
-    <el-dialog title="添加人脸库" :visible.sync="dialogFormVisible" center width="30%">
+    <!-- 添加人脸库 -->
+    <el-dialog title="添加人脸库" :visible.sync="addFaceRep" left width="30%">
       <div class="face-modal">
-        <span class="query-title">身份证号：</span>
-        <el-input v-model="id" placeholder="输入身份证号" class="face-id"></el-input>
+        <span class="query-title">人脸库名称：</span>
+        <el-input v-model="id" placeholder="输入人脸库名称" class="face-id"></el-input>
       </div>
       <div class="face-modal">
-        <span class="query-title">姓名：</span>
-        <el-input v-model="name" placeholder="输入姓名"></el-input>
+        <span class="query-title">阈值：</span>
+        <el-input v-model="name" placeholder="20~100之间"></el-input>
       </div>
       <div class="face-modal">
-        <span class="query-title">姓名：</span>
-        <el-input v-model="name" placeholder="输入姓名"></el-input>
+        <span class="query-title">备注：</span>
+        <el-input v-model="name" placeholder="输入备注信息"></el-input>
       </div>
       <div slot="footer" class="dialog-footer">
-        <button class="btn-primary" @click="dialogFormVisible = false">填好了，确认</button>
-        <button class="btn-dashed" @click="dialogFormVisible = false">重置</button>
+        <button class="btn-primary" @click="addFaceRep = false">填好了，确认</button>
+        <button class="btn-dashed" @click="addFaceRep = false">重置</button>
+      </div>
+    </el-dialog>
+    <!-- 添加人员信息 -->
+    <el-dialog title="添加人员信息" :visible.sync="addPersonFace" left width="30%">
+      <el-row>
+        <el-col :span="12">
+          <div class="face-modal">
+            <span class="query-title">姓名：</span>
+            <el-input v-model="id" placeholder="输入人员姓名" class="face-id"></el-input>
+          </div>
+        </el-col>
+        <el-col :span="12">
+          <div class="face-modal">
+            <span class="query-title">性别：</span>
+            <el-select v-model="value" placeholder="选择性别">
+              <el-option
+                v-for="gender in genders"
+                :key="gender.value"
+                :label="gender.label"
+                :value="gender.value"
+              ></el-option>
+            </el-select>
+          </div>
+        </el-col>
+      </el-row>
+      <div class="face-modal">
+        <span class="query-title">身份证号：</span>
+        <el-input v-model="name" placeholder="输入身份证号"></el-input>
+      </div>
+      <div class="upload">
+        <el-upload
+          action="https://jsonplaceholder.typicode.com/posts/"
+          list-type="picture-card"
+          :on-preview="handlePictureCardPreview"
+          :on-remove="handleRemove"
+        >
+          <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+          <img width="100%" :src="dialogImageUrl" alt>
+        </el-dialog>
+      </div>
+      <div slot="footer" class="dialog-footer">
+        <button class="btn-primary" @click="addPersonFace = false">填好了，确认</button>
+        <button class="btn-dashed" @click="addPersonFace = false">重置</button>
       </div>
     </el-dialog>
   </div>
@@ -117,7 +162,10 @@
 export default {
   data() {
     return {
-      dialogFormVisible: false,
+      dialogImageUrl: "",
+      dialogVisible: false,
+      addFaceRep: false,
+      addPersonFace: false,
       form: {
         name: "",
         region: "",
@@ -151,6 +199,17 @@ export default {
           label: "全部"
         }
       ],
+      genders: [
+        {
+          value: "1",
+          label: "男"
+        },
+        {
+          value: "0",
+          label: "女"
+        }
+      ],
+      gender:this.genders,
       value: this.options,
       name: "",
       id: "",
@@ -230,6 +289,13 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
     }
   }
 };
@@ -253,6 +319,11 @@ export default {
       }
     }
   }
+}
+
+.dialog-footer,
+.upload {
+  text-align: center;
 }
 </style>
 <style lang="scss">

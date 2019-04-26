@@ -1,6 +1,10 @@
 <template>
   <!-- 登录：路由守卫 -->
-  <div class="test">
+  <div class="login">
+
+
+
+
     <button @click="HandleLogin">登录</button>
   </div>
 </template>
@@ -16,11 +20,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$w200: 200px;
-$height: 100px;
-.test {
-  width: $w200;
-  color: $main_color;
+.login{
+  background: url('')
 }
+
 </style>
 

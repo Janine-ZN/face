@@ -42,6 +42,14 @@
   @include input-title();
 }
 
+.face-modal .query-title {
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  @include input-title();
+}
+
+
 .face-result {
   @include gray-dashed();
 
@@ -93,6 +101,7 @@
   font-size: 0.875em;
   border-radius: 1.786em;
   padding: 0 2.143em;
+  outline: none
 }
 
 /* 主要的按钮样式  */
@@ -194,6 +203,7 @@
 .face-rep-font {
   padding: 5px 10px;
   border-bottom: 1px dashed $border_color;
+
   img {
     float: right;
     padding-right: 5px;

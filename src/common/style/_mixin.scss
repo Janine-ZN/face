@@ -1,179 +1,202 @@
 @import './base.scss';
 
 @mixin flex-style {
-    display: -webkit-flex; /* Safari */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* 背景为灰色的虚线框 */
 @mixin gray-dashed {
-    border: 1px dashed $border_color;
-    background: $my_main_color;
+  border: 1px dashed $border_color;
+  background: $my_main_color;
 }
 
 .date {
-    height: 198px;
-    margin-top: 10px;
-    @include gray-dashed();
-    min-height: 190px;
+  height: 198px;
+  margin-top: 10px;
+  @include gray-dashed();
+  min-height: 190px;
 }
+
 @mixin input-title {
-    font-size: 12px;
-    color: $font_secondary_color;
-    background: $my_main_color;
-    z-index: 999;
+  font-size: 12px;
+  color: $font_secondary_color;
+  background: $my_main_color;
+  z-index: 999;
 }
 
 .date-title {
+  position: relative;
+  left: 35px;
+  top: 10px;
+  @include input-title();
+}
+
+.query-title {
+  position: absolute;
+  left: 20px;
+  top: -5px;
+  @include input-title();
+}
+
+.face-result {
+  @include gray-dashed();
+
+  .face-img {
     position: relative;
-    left: 35px;
-    top: 10px;
-    @include input-title();
-}
+    display: inline-block;
+    @include gray-dashed();
+    margin: 10px 0 10px 10px;
+    padding: 5px;
+  }
 
-.query-title{
+  .image {
+    width: 163px
+  }
+
+  .compare {
     position: absolute;
-    left: 20px;
-    top: -5px;
-    @include input-title();
+    right: 15px;
+    bottom: 50px;
+  }
+
+  .face-img-time {
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    color: $font_secondary_color;
+  }
 }
 
-.face-result{
-    @include gray-dashed();
-    .face-img {
-        position: relative;
-        display: inline-block;
-        @include gray-dashed();
-        margin: 10px 0 10px 10px;
-        padding: 5px;
-    }
-    .image{
-        width: 163px
-    }
-    .compare{
-        position: absolute;
-        right: 15px;
-        bottom: 50px;
-    }
-    .face-img-time{
-        text-align: center;
-        font-size: 12px;
-        padding: 10px 0;
-        color: $font_secondary_color;
-    }    
+.face-rep {
+  @include gray-dashed();
 }
 
-.face-rep{
-    @include gray-dashed();
+.face-query {
+  height: 75px;
+  @include gray-dashed();
 }
 
-.face-query{
-    height: 75px;
-    @include gray-dashed();
+.face-info-table {
+  height: 500px;
+  margin-top: 15px;
+  @include gray-dashed();
 }
-
-.face-info-table{
-    height: 500px;
-    margin-top: 15px;
-    @include gray-dashed();
-
-}
-
 
 /* 通用的按钮样式 */
 @mixin btn-common {
-    height: 2.143em;
-    line-height: 2.143em;
-    font-size: 0.875em;
-    border-radius: 1.786em;
-    padding: 0 2.143em;
+  height: 2.143em;
+  line-height: 2.143em;
+  font-size: 0.875em;
+  border-radius: 1.786em;
+  padding: 0 2.143em;
 }
 
 /* 主要的按钮样式  */
-@mixin btn-primary{
-    color: $my_main_color;
-    background: $main_color;
-    border: none;
-    @include btn-common()
+@mixin btn-primary {
+  color: $my_main_color;
+  background: $main_color;
+  border: none;
+  @include btn-common()
 }
 
-.btn-primary{
-    @include  btn-primary();
+.btn-primary {
+  @include btn-primary();
 }
 
 /* 虚线框 */
-@mixin btn-dashed-radius{
-    border: 0.0625em dashed $secondary_color;
-    border-radius: 1.5625em;
+@mixin btn-dashed-radius {
+  border: 0.0625em dashed $secondary_color;
+  border-radius: 1.5625em;
 }
 
 /* 带虚线框的按钮样式 */
-@mixin btn-dashed{
-    color: $main_color;
-    background: $my_main_color;
-    @include btn-dashed-radius();
-    @include btn-common();
+@mixin btn-dashed {
+  color: $main_color;
+  background: $my_main_color;
+  @include btn-dashed-radius();
+  @include btn-common();
 }
 
 @mixin group {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.714em 1.071em;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.714em 1.071em;
 }
 
 .btn-group {
-    @include group();
+  @include group();
 }
-  
-.img-group{
-    position: relative;
-    @include group();
+
+.img-group {
+  position: relative;
+  @include group();
 }
 
 .img-tip {
-    position: absolute;
-    font-size: 0.875em;
-    color: lemonchiffon;
-    top: 0.714em;
-    left: 35%;
-    padding: 0.357em 0.714em;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-.btn-dashed{
-    @include btn-dashed();
+  position: absolute;
+  font-size: 0.875em;
+  color: lemonchiffon;
+  top: 0.714em;
+  left: 35%;
+  padding: 0.357em 0.714em;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.logout{
-    width: 6.25em;
-    height: 1.5625em;
-    display: inline-block;
-    border: 0.0625em dashed $my_main_color;
-    border-radius: 1.5625em;
-    vertical-align: middle;
+.btn-dashed {
+  @include btn-dashed();
 }
 
-.logout-content{
-    display: inline-block;
-    margin-left: -6.125em;
-    .logout-admin{
-        padding-right: 10px;
-        span{
-            font-size: 0.875em;
-            color: $my_main_color
-        }
+.logout {
+  width: 6.25em;
+  height: 1.5625em;
+  display: inline-block;
+  border: 0.0625em dashed $my_main_color;
+  border-radius: 1.5625em;
+  vertical-align: middle;
+}
+
+.logout-content {
+  display: inline-block;
+  margin-left: -6.125em;
+
+  .logout-admin {
+    padding-right: 10px;
+
+    span {
+      font-size: 0.875em;
+      color: $my_main_color
     }
+  }
+}
+
+@mixin title-font {
+  padding-left: 10px;
+  color: $main_color;
+  font-weight: 500;
 }
 
 /* 标题文字 */
-.title-font{
-    padding-left: 10px;
-    color: $main_color;
-    font-weight: 500;
-    background: url('~@/assets/imgs/title.png') no-repeat;
+.title-font {
+  @include title-font();
+  background: url('~@/assets/imgs/title.png') no-repeat;
 }
 
+.face-rep-title {
+  @include title-font();
+  padding-left: 20px;
+  background: url('~@/assets/imgs/face_ico.png') no-repeat left center;
+}
 
-
+.face-rep-font {
+  padding: 5px 10px;
+  border-bottom: 1px dashed $border_color;
+  img {
+    float: right;
+    padding-right: 5px;
+    vertical-align: middle;
+  }
+}

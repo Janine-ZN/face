@@ -3,12 +3,18 @@
     <el-row :gutter="20">
       <el-col :span="4">
         <div class="face-rep">
-          <div class="face_rep_font">人脸库</div>
+          <div class="face-rep-font">
+            <span class="face-rep-title">人脸库</span>
+            <img src="~@/assets/imgs/add_rep.png" @click="dialogFormVisible = true">
+          </div>
           <div class="various_libs">
-            <div class="libs test">测试库</div>
-            <div class="libs blacklist">黑名单</div>
-            <div class="libs leader">领导人员库</div>
-            <div class="libs employee">普通员工</div>
+            <ul>
+              <li v-for="rep in reps">
+                {{ rep.title }}
+                <img :src="imgEdit" alt>
+                <img :src="imgDelete" alt>
+              </li>
+            </ul>
           </div>
         </div>
       </el-col>
@@ -43,7 +49,6 @@
             </el-col>
           </el-row>
         </div>
-
         <div class="face-info-table">
           <div class="operate">
             <button class="btn-dashed">
@@ -87,12 +92,51 @@
         </div>
       </el-col>
     </el-row>
+
+    <el-dialog title="添加人脸库" :visible.sync="dialogFormVisible" center width="30%">
+      <div class="face-modal">
+        <span class="query-title">身份证号：</span>
+        <el-input v-model="id" placeholder="输入身份证号" class="face-id"></el-input>
+      </div>
+      <div class="face-modal">
+        <span class="query-title">姓名：</span>
+        <el-input v-model="name" placeholder="输入姓名"></el-input>
+      </div>
+      <div class="face-modal">
+        <span class="query-title">姓名：</span>
+        <el-input v-model="name" placeholder="输入姓名"></el-input>
+      </div>
+      <div slot="footer" class="dialog-footer">
+        <button class="btn-primary" @click="dialogFormVisible = false">填好了，确认</button>
+        <button class="btn-dashed" @click="dialogFormVisible = false">重置</button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      dialogFormVisible: false,
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: ""
+      },
+      formLabelWidth: "80px",
+      imgEdit: "@/assets/imgs/edit.png",
+      imgDelete: "@/assets/imgs/delete.png",
+      reps: [
+        { title: "测试库" },
+        { title: "黑名单" },
+        { title: "领导人员库" },
+        { title: "普通员工" }
+      ],
       options: [
         {
           value: "1",
@@ -195,6 +239,21 @@ export default {
 .operate {
   padding: 15px;
 }
+
+.various_libs {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 10px;
+      &:hover {
+        border-left: 3px solid $main_color;
+        background: #f0fbff;
+      }
+    }
+  }
+}
 </style>
 <style lang="scss">
 .face-query-infos {
@@ -213,6 +272,22 @@ export default {
     line-height: 0 !important;
   }
 }
+
+.face-modal {
+  position: relative;
+  padding: 25px 15px;
+  .el-input {
+    .el-input__inner {
+      border-radius: 25px !important;
+      border: 1px dashed $border_color !important;
+      text-align: right !important;
+    }
+  }
+  .el-input__icon {
+    line-height: 0 !important;
+  }
+}
+
 .face-query-info {
   position: relative;
   display: inline-block;
@@ -223,6 +298,7 @@ export default {
     }
   }
 }
+
 .my-table {
   .el-table td,
   .el-table th {

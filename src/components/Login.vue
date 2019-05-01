@@ -1,10 +1,6 @@
 <template>
   <!-- 登录：路由守卫 -->
   <div class="login">
-
-
-
-
     <button @click="HandleLogin">登录</button>
   </div>
 </template>
@@ -20,9 +16,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.login{
-  background: url('')
+.login {
+  background: url("~@/assets/imgs/login-bg.png") no-repeat;
 }
-
 </style>
 

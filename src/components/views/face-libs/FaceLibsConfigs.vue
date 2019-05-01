@@ -9,7 +9,7 @@
           </div>
           <div class="various_libs">
             <ul>
-              <li v-for="rep in reps">
+              <li v-for="(rep,index) in reps" :key="'reps'+index">
                 {{ rep.title }}
                 <img :src="imgEdit" alt>
                 <img :src="imgDelete" alt>
@@ -209,7 +209,7 @@ export default {
           label: "女"
         }
       ],
-      gender:this.genders,
+      gender: this.genders,
       value: this.options,
       name: "",
       id: "",

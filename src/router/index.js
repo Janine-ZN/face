@@ -57,4 +57,5 @@ export default new Router({
     // 找不到路由默认加载的页面或跳转到指定页面
     { path: '*', component: ()=>import('@/components/404') }
   ]
+  
 })

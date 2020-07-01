@@ -5,8 +5,8 @@
         <el-row :gutter="20">
           <el-col :span="4">
             <div class="grid-content">
-              <img src="../assets/imgs/vr.png" alt height="30%">
-              <img src="../assets/imgs/view.png" alt height="25%">
+              <img src="../assets/imgs/vr.png" alt height="30%" />
+              <img src="../assets/imgs/view.png" alt height="25%" />
             </div>
           </el-col>
           <el-col :span="16">
@@ -34,10 +34,10 @@
             <div class="logout"></div>
             <span class="logout-content">
               <span class="logout-admin">
-                <img src="../assets/imgs/user.png" alt>
+                <img src="../assets/imgs/user.png" alt />
                 <span>admin</span>
               </span>
-              <img src="../assets/imgs/exit.png" alt>
+              <img src="../assets/imgs/exit.png" alt />
             </span>
           </el-col>
         </el-row>
@@ -48,7 +48,7 @@
       </el-main>
       <el-footer>
         ©2017 VRVIEW 版权所有 寰景信息技术有限公司 皖ICP备14001780号
-        <br>电话: +86-551-65319388; +86-551-65370504; 传真: +86-551-65359164; 地址:安徽省合肥市黄山路616号(230088)
+        <br />电话: +86-551-65319388; +86-551-65370504; 传真: +86-551-65359164; 地址:安徽省合肥市黄山路616号(230088)
       </el-footer>
     </el-container>
   </div>
@@ -131,7 +131,7 @@ export default {
   // 3. 边距
   padding: 16px 0; // 使文字上下垂直居中
   // 4. 字体样式
-  font-size: $font_size_12;
+  font-size: 12px;
   text-align: center; // 使文字水平居中
   color: $font_secondary_color;
   // 5.背景
